@@ -1,0 +1,67 @@
+
+1.Скачиваем
+git clone https://github.com/curl/curl
+2.Конфигурируем
+configure: Configured to build curl/libcurl:
+
+  Host setup:       x86_64-pc-linux-gnu
+  Install prefix:   /usr/local
+  Compiler:         gcc
+   CFLAGS:          -Werror-implicit-function-declaration -O2 -Wno-system-headers
+   CFLAGS extras:   
+   CPPFLAGS:        -D_GNU_SOURCE
+   LDFLAGS:         
+     curl-config:   
+   LIBS:            -lnghttp2 -lidn2 -lpsl -lzstd -lbrotlidec -lz
+
+  curl version:     8.23.1-DEV
+  SSL:              no       (--with-{openssl,gnutls,mbedtls,wolfssl,schannel,amissl,rustls} )
+  SSH:              no       (--with-{libssh,libssh2})
+  zlib:             enabled
+  brotli:           enabled (libbrotlidec)
+  zstd:             enabled (libzstd)
+  GSS-API:          no       (--with-gssapi)
+  GSASL:            no       (--with-gsasl)
+  resolver:         POSIX threaded
+  IPv6:             enabled
+  Unix sockets:     enabled
+  IDN:              enabled (libidn2)
+  Build docs:       enabled  (--disable-docs)
+  Build libcurl:    Shared=yes, Static=yes
+  Built-in manual:  enabled
+  --libcurl option: enabled  (--disable-libcurl-option)
+  Type checking:    enabled  (--disable-typecheck)
+  Verbose errors:   enabled  (--disable-verbose)
+  Code coverage:    disabled
+  SSPI:             no       (--enable-sspi)
+  CA native:        
+  CA cert bundle:   no
+  CA cert path:     
+  CA cert embed:    no
+  CA fallback:      
+  LDAP:             no       (--enable-ldap / --with-ldap-lib / --with-lber-lib)
+  LDAPS:            no       (--enable-ldaps)
+  IPFS/IPNS:        no       (--enable-ipfs)
+  RTSP:             no       (--enable-rtsp)
+  PSL:              enabled
+  Alt-svc:          enabled  (--disable-alt-svc)
+  Headers API:      enabled  (--disable-headers-api)
+  HSTS:             no      (--enable-hsts)
+  HTTP1:            enabled  (internal)
+  HTTP2:            enabled (nghttp2)
+  HTTP3:            no       (--with-ngtcp2 --with-nghttp3, --with-quiche)
+  proxy-HTTP3:      no      (--enable-proxy-http3)
+  ECH:              no      (--enable-ech)
+  HTTPS RR:         enabled (--disable-httpsrr)
+  SSLS-EXPORT:      no      (--enable-ssls-export)
+  Protocols:        http telnet ws
+  Features:         alt-svc AsynchDNS brotli HTTP2 HTTPSRR IDN IPv6 Largefile libz PSL threadsafe UnixSockets zstd
+3.Собираем 
+make
+4.Тестируем
+./curl -V
+curl 8.23.1-DEV (x86_64-pc-linux-gnu) libcurl/8.23.1-DEV zlib/1.3.1 brotli/1.1.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 nghttp2/1.64.0
+Release-Date: [unreleased]
+Protocols: http telnet ws
+Features: alt-svc AsynchDNS brotli HTTP2 HTTPSRR IDN IPv6 Largefile libz PSL threadsafe UnixSockets zstd
+
