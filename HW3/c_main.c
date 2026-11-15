@@ -44,6 +44,15 @@ Node *f(Node *list, Node *acc, int (*pred)(long)) {
     return f(list->next, acc, pred);
 }
 
+/* free_list:  */
+void free_list(Node *list) {
+    while (list) {
+        Node *t = list->next;
+        free(list);
+        list = t;
+    }
+}
+
 int main(void) {
     long data[] = {4, 8, 15, 16, 23, 42};
     size_t n = sizeof(data) / sizeof(data[0]);
@@ -62,9 +71,8 @@ int main(void) {
     m(filtered, print_int);
     puts("");
 
-    /* освобождение памяти  */
-    while (list)     { Node *t = list->next;     free(list); list = t; }
-    while (filtered) { Node *t = filtered->next; free(filtered); filtered = t; }
+    free_list(list);
+    free_list(filtered);
 
     return 0;
 }
